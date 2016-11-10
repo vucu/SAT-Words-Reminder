@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */; };
+		FF01DAF31DD4177300EC8F7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DAF21DD4177300EC8F7B /* ViewController.swift */; };
+		FF01DAF61DD4177300EC8F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF41DD4177300EC8F7B /* Main.storyboard */; };
+		FF01DAF81DD4177300EC8F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF71DD4177300EC8F7B /* Assets.xcassets */; };
+		FF01DAFB1DD4177300EC8F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */; };
+		FF01DB061DD4177300EC8F7B /* SAT_Words_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF01DB021DD4177300EC8F7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF01DAE51DD4177300EC8F7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF01DAEC1DD4177300EC8F7B;
+			remoteInfo = "SAT Words Reminder";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FF01DAED1DD4177300EC8F7B /* SAT Words Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAT Words Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF01DAF21DD4177300EC8F7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF01DAF51DD4177300EC8F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF01DAF71DD4177300EC8F7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF01DAFA1DD4177300EC8F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF01DAFC1DD4177300EC8F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF01DB011DD4177300EC8F7B /* SAT Words ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAT Words ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAT_Words_ReminderTests.swift; sourceTree = "<group>"; };
+		FF01DB071DD4177300EC8F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF01DAEA1DD4177300EC8F7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF01DAFE1DD4177300EC8F7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF01DAE41DD4177300EC8F7B = {
+			isa = PBXGroup;
+			children = (
+				FF01DAEF1DD4177300EC8F7B /* SAT Words Reminder */,
+				FF01DB041DD4177300EC8F7B /* SAT Words ReminderTests */,
+				FF01DAEE1DD4177300EC8F7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF01DAEE1DD4177300EC8F7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF01DAED1DD4177300EC8F7B /* SAT Words Reminder.app */,
+				FF01DB011DD4177300EC8F7B /* SAT Words ReminderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF01DAEF1DD4177300EC8F7B /* SAT Words Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */,
+				FF01DAF21DD4177300EC8F7B /* ViewController.swift */,
+				FF01DAF41DD4177300EC8F7B /* Main.storyboard */,
+				FF01DAF71DD4177300EC8F7B /* Assets.xcassets */,
+				FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */,
+				FF01DAFC1DD4177300EC8F7B /* Info.plist */,
+			);
+			path = "SAT Words Reminder";
+			sourceTree = "<group>";
+		};
+		FF01DB041DD4177300EC8F7B /* SAT Words ReminderTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */,
+				FF01DB071DD4177300EC8F7B /* Info.plist */,
+			);
+			path = "SAT Words ReminderTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF01DAEC1DD4177300EC8F7B /* SAT Words Reminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF01DB0A1DD4177300EC8F7B /* Build configuration list for PBXNativeTarget "SAT Words Reminder" */;
+			buildPhases = (
+				FF01DAE91DD4177300EC8F7B /* Sources */,
+				FF01DAEA1DD4177300EC8F7B /* Frameworks */,
+				FF01DAEB1DD4177300EC8F7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SAT Words Reminder";
+			productName = "SAT Words Reminder";
+			productReference = FF01DAED1DD4177300EC8F7B /* SAT Words Reminder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF01DB001DD4177300EC8F7B /* SAT Words ReminderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF01DB0D1DD4177300EC8F7B /* Build configuration list for PBXNativeTarget "SAT Words ReminderTests" */;
+			buildPhases = (
+				FF01DAFD1DD4177300EC8F7B /* Sources */,
+				FF01DAFE1DD4177300EC8F7B /* Frameworks */,
+				FF01DAFF1DD4177300EC8F7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF01DB031DD4177300EC8F7B /* PBXTargetDependency */,
+			);
+			name = "SAT Words ReminderTests";
+			productName = "SAT Words ReminderTests";
+			productReference = FF01DB011DD4177300EC8F7B /* SAT Words ReminderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF01DAE51DD4177300EC8F7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "CLICC User";
+				TargetAttributes = {
+					FF01DAEC1DD4177300EC8F7B = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					FF01DB001DD4177300EC8F7B = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = FF01DAEC1DD4177300EC8F7B;
+					};
+				};
+			};
+			buildConfigurationList = FF01DAE81DD4177300EC8F7B /* Build configuration list for PBXProject "SAT Words Reminder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF01DAE41DD4177300EC8F7B;
+			productRefGroup = FF01DAEE1DD4177300EC8F7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF01DAEC1DD4177300EC8F7B /* SAT Words Reminder */,
+				FF01DB001DD4177300EC8F7B /* SAT Words ReminderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF01DAEB1DD4177300EC8F7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01DAFB1DD4177300EC8F7B /* LaunchScreen.storyboard in Resources */,
+				FF01DAF81DD4177300EC8F7B /* Assets.xcassets in Resources */,
+				FF01DAF61DD4177300EC8F7B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF01DAFF1DD4177300EC8F7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF01DAE91DD4177300EC8F7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01DAF31DD4177300EC8F7B /* ViewController.swift in Sources */,
+				FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF01DAFD1DD4177300EC8F7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01DB061DD4177300EC8F7B /* SAT_Words_ReminderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF01DB031DD4177300EC8F7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF01DAEC1DD4177300EC8F7B /* SAT Words Reminder */;
+			targetProxy = FF01DB021DD4177300EC8F7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF01DAF41DD4177300EC8F7B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF01DAF51DD4177300EC8F7B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF01DAFA1DD4177300EC8F7B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF01DB081DD4177300EC8F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF01DB091DD4177300EC8F7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF01DB0B1DD4177300EC8F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SAT Words Reminder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Simple-But-Effective-Education.SAT-Words-Reminder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF01DB0C1DD4177300EC8F7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SAT Words Reminder/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Simple-But-Effective-Education.SAT-Words-Reminder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FF01DB0E1DD4177300EC8F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SAT Words ReminderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Simple-But-Effective-Education.SAT-Words-ReminderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SAT Words Reminder.app/SAT Words Reminder";
+			};
+			name = Debug;
+		};
+		FF01DB0F1DD4177300EC8F7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SAT Words ReminderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Simple-But-Effective-Education.SAT-Words-ReminderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SAT Words Reminder.app/SAT Words Reminder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF01DAE81DD4177300EC8F7B /* Build configuration list for PBXProject "SAT Words Reminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF01DB081DD4177300EC8F7B /* Debug */,
+				FF01DB091DD4177300EC8F7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF01DB0A1DD4177300EC8F7B /* Build configuration list for PBXNativeTarget "SAT Words Reminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF01DB0B1DD4177300EC8F7B /* Debug */,
+				FF01DB0C1DD4177300EC8F7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FF01DB0D1DD4177300EC8F7B /* Build configuration list for PBXNativeTarget "SAT Words ReminderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF01DB0E1DD4177300EC8F7B /* Debug */,
+				FF01DB0F1DD4177300EC8F7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF01DAE51DD4177300EC8F7B /* Project object */;
+}
