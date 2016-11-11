@@ -13,6 +13,8 @@
 		FF01DAF81DD4177300EC8F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF71DD4177300EC8F7B /* Assets.xcassets */; };
 		FF01DAFB1DD4177300EC8F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */; };
 		FF01DB061DD4177300EC8F7B /* SAT_Words_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */; };
+		FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3722C01DD58C73002AA2B0 /* RatingControl.swift */; };
+		FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3722C21DD590F3002AA2B0 /* SatWord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		FF01DB011DD4177300EC8F7B /* SAT Words ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAT Words ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAT_Words_ReminderTests.swift; sourceTree = "<group>"; };
 		FF01DB071DD4177300EC8F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3722C01DD58C73002AA2B0 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		FF3722C21DD590F3002AA2B0 /* SatWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */,
 				FF01DAF21DD4177300EC8F7B /* ViewController.swift */,
+				FF3722C01DD58C73002AA2B0 /* RatingControl.swift */,
+				FF3722C21DD590F3002AA2B0 /* SatWord.swift */,
 				FF01DAF41DD4177300EC8F7B /* Main.storyboard */,
 				FF01DAF71DD4177300EC8F7B /* Assets.xcassets */,
 				FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */,
@@ -197,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */,
 				FF01DAF31DD4177300EC8F7B /* ViewController.swift in Sources */,
+				FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */,
 				FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +396,7 @@
 				FF01DB0C1DD4177300EC8F7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF01DB0D1DD4177300EC8F7B /* Build configuration list for PBXNativeTarget "SAT Words ReminderTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +405,7 @@
 				FF01DB0F1DD4177300EC8F7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
