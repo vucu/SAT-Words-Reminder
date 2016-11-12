@@ -147,6 +147,49 @@
             </objects>
             <point key="canvasLocation" x="2062" y="298"/>
         </scene>
+        <!--Word-->
+        <scene sceneID="0Qv-mY-sUx">
+            <objects>
+                <viewController id="Zhv-rv-7Fn" customClass="DetailViewController" customModule="SAT_Words_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eGt-q4-i38"/>
+                        <viewControllerLayoutGuide type="bottom" id="htV-l0-GNO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gdh-zz-19f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-kX-ZaB">
+                                <rect key="frame" x="20" y="80" width="560" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-3P-tcj">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-mS-fgw">
+                                        <rect key="frame" x="0.0" y="33" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="leading" secondItem="Gdh-zz-19f" secondAttribute="leadingMargin" id="CMq-Wy-yNo"/>
+                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="top" secondItem="eGt-q4-i38" secondAttribute="bottom" constant="60" id="Wqh-bD-HPy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKH-kX-ZaB" secondAttribute="trailing" id="hRW-lu-S7s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Word" id="UIM-FV-6Zi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fi-VZ-Inv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1387" y="1015"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Nca-RO-dwn">
             <objects>
@@ -163,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDZ-aC-ALa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738" y="298"/>
+            <point key="canvasLocation" x="3540" y="298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HhI-Qz-XUC">
@@ -200,6 +243,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x0-0C-ATl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1250" y="298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hqx-P2-Nxv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5z0-cQ-bo7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fnq-KB-CxG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zhv-rv-7Fn" kind="relationship" relationship="rootViewController" id="PKF-p2-z9q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6I-RR-4cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="1015"/>
         </scene>
     </scenes>
     <resources>
