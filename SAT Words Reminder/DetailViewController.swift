@@ -9,11 +9,20 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    // MARK: Properties
+    @IBOutlet weak var wordTextLabel: UILabel!
+    @IBOutlet weak var descriptionTextLabel: UILabel!
+    
+    
+    var satWord: SatWord?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        wordTextLabel.text = satWord?.name
+        descriptionTextLabel.text = satWord?.description
+        navigationItem.title = satWord?.name
     }
 
     override func didReceiveMemoryWarning() {

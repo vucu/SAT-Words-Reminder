@@ -33,7 +33,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="satWordTextLabel" destination="iBy-eM-TKy" id="Mp4-WP-S7O"/>
-                                    <segue destination="Zhv-rv-7Fn" kind="show" id="49N-44-KwK"/>
+                                    <segue destination="Zhv-rv-7Fn" kind="show" identifier="ShowDetail" id="49N-44-KwK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -161,16 +161,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-kX-ZaB">
-                                <rect key="frame" x="20" y="80" width="560" height="53"/>
+                                <rect key="frame" x="20" y="80" width="560" height="69"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-3P-tcj">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-3P-tcj">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-mS-fgw">
-                                        <rect key="frame" x="0.0" y="33" width="560" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-mS-fgw">
+                                        <rect key="frame" x="0.0" y="48" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -186,10 +186,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Word" id="UIM-FV-6Zi"/>
+                    <connections>
+                        <outlet property="descriptionTextLabel" destination="Bzc-mS-fgw" id="cpv-vw-UN1"/>
+                        <outlet property="wordTextLabel" destination="H6N-3P-tcj" id="dfV-PU-qwq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fi-VZ-Inv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="1042"/>
+            <point key="canvasLocation" x="1280" y="1057"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nca-RO-dwn">
