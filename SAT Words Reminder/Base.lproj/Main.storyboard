@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SatWordTableViewCell" id="quV-e7-pGB" customClass="SatWordTableViewCell" customModule="SAT_Words_Reminder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SatWordTableViewCell" id="quV-e7-pGB" customClass="SatWordTableViewCell" customModule="SAT_Words_Reminder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="quV-e7-pGB" id="ukh-ec-OGO">
@@ -33,6 +33,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="satWordTextLabel" destination="iBy-eM-TKy" id="Mp4-WP-S7O"/>
+                                    <segue destination="Zhv-rv-7Fn" kind="show" id="49N-44-KwK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -159,7 +160,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-kX-ZaB">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-kX-ZaB">
                                 <rect key="frame" x="20" y="80" width="560" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-3P-tcj">
@@ -180,7 +181,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hKH-kX-ZaB" firstAttribute="leading" secondItem="Gdh-zz-19f" secondAttribute="leadingMargin" id="CMq-Wy-yNo"/>
-                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="top" secondItem="eGt-q4-i38" secondAttribute="bottom" constant="60" id="Wqh-bD-HPy"/>
+                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="top" secondItem="eGt-q4-i38" secondAttribute="bottom" constant="16" id="Wqh-bD-HPy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hKH-kX-ZaB" secondAttribute="trailing" id="hRW-lu-S7s"/>
                         </constraints>
                     </view>
@@ -188,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fi-VZ-Inv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387" y="1015"/>
+            <point key="canvasLocation" x="1282" y="1042"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nca-RO-dwn">
@@ -266,4 +267,7 @@
     <resources>
         <image name="defaultPhoto" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="49N-44-KwK"/>
+    </inferredMetricsTieBreakers>
 </document>
