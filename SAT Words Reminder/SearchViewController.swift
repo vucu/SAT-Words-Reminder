@@ -14,6 +14,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchResultPlaceholder: UILabel!
     @IBOutlet weak var someImageView: UIImageView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var satWordList: SatWordList?
+    var newSatWord: SatWord?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         // Handle the text field’s user input through delegate callbacks.
         searchTextField.delegate = self;
         
+        checkValidNewSatWord()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +34,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
 
     // MARK: UITextFieldDelegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.enabled = false
+    }
+    
+    func checkValidNewSatWord() {
+        // Disable the Save button if the text field is empty.
+        let text = searchTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
+
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Hide the keyboard.
         searchTextField.resignFirstResponder()
@@ -36,7 +52,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        searchResultPlaceholder.text = searchTextField.text
+        checkValidNewSatWord()
+        navigationItem.title = searchTextField.text
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -54,6 +71,18 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: Navigation
+    // This method lets you configure a view controller before it's presented.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (sender === saveButton) {
+            let name = "word"
+            let description = "description"
+            newSatWord = SatWord(name: name, description: description)
+            
+            
+        }
     }
 
     

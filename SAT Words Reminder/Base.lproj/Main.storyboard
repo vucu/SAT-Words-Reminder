@@ -68,29 +68,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Tf-sUb">
                                 <rect key="frame" x="20" y="80" width="560" height="315"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Uz-z2S">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Uz-z2S">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-zl-ni6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-zl-ni6">
                                         <rect key="frame" x="0.0" y="42" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rus-ih-3KB">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rus-ih-3KB">
                                         <rect key="frame" x="0.0" y="84" width="48" height="30"/>
                                         <state key="normal" title="Search"/>
                                         <connections>
                                             <action selector="performSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztO-l2-xen"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Search Results Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efV-fv-tIe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efV-fv-tIe">
                                         <rect key="frame" x="0.0" y="126" width="209" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="HWs-Zv-wHB">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="HWs-Zv-wHB">
                                         <rect key="frame" x="0.0" y="159" width="100" height="100"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -100,7 +100,7 @@
                                             <outletCollection property="gestureRecognizers" destination="sqx-nP-IqA" appends="YES" id="K2C-cf-frN"/>
                                         </connections>
                                     </imageView>
-                                    <view contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Rx-csP" customClass="RatingControl" customModule="SAT_Words_Reminder" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Rx-csP" customClass="RatingControl" customModule="SAT_Words_Reminder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="271" width="240" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -120,15 +120,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Words" id="bRf-VP-xRH">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZVs-ge-1xM"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RF5-gd-LAA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RF5-gd-LAA">
+                            <connections>
+                                <segue destination="tGm-nS-cy4" kind="unwind" unwindAction="unwindToSatWordTableView:" id="1PW-TW-XeE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="RF5-gd-LAA" id="m4z-AK-Z8g"/>
                         <outlet property="searchResultPlaceholder" destination="efV-fv-tIe" id="e4U-Em-Zwa"/>
                         <outlet property="searchTextField" destination="B5M-Uz-z2S" id="fDm-4W-enn"/>
                         <outlet property="someImageView" destination="HWs-Zv-wHB" id="f7M-r4-GU6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="tGm-nS-cy4" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="sqx-nP-IqA">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Od6-JO-WRw"/>

@@ -33,7 +33,7 @@ class SatWordList {
     
     func display(position: Int) -> String {
         var s: String
-        s = self.list[position].name + ":" + self.list[position].description
+        s = self.list[position].name + ": " + self.list[position].description
         return s
     }
 }

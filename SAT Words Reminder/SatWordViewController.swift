@@ -104,5 +104,14 @@ class SatWordViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToSatWordTableView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SearchViewController,
+            newSatWord = sourceViewController.newSatWord {
+                let newIndexPath = NSIndexPath(forRow: (satWordList?.count())!, inSection: 0)
+                satWordList?.add(newSatWord)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 
 }
