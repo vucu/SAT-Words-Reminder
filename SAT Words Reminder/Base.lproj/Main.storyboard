@@ -119,7 +119,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Words" id="bRf-VP-xRH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZVs-ge-1xM"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZVs-ge-1xM">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="niT-LM-c1y"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="RF5-gd-LAA">
                             <connections>
                                 <segue destination="tGm-nS-cy4" kind="unwind" unwindAction="unwindToSatWordTableView:" id="1PW-TW-XeE"/>

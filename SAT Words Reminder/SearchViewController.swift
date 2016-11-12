@@ -74,6 +74,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     // MARK: Navigation
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (sender === saveButton) {
