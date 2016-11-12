@@ -19,6 +19,7 @@
 		FF63C9651DD6D2200038AEC4 /* SatWordDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */; };
 		FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */; };
 		FF63C9691DD6D8FE0038AEC4 /* SatWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */; };
+		FF89512C1DD7D89400675EC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF89512B1DD7D89400675EC1 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SatWordDatabase.swift; path = ../SatWordDatabase.swift; sourceTree = "<group>"; };
 		FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordTableViewCell.swift; sourceTree = "<group>"; };
 		FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordViewController.swift; sourceTree = "<group>"; };
+		FF89512B1DD7D89400675EC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */,
 				FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */,
 				FF01DAF41DD4177300EC8F7B /* Main.storyboard */,
+				FF89512B1DD7D89400675EC1 /* DetailViewController.swift */,
 				FF01DAF71DD4177300EC8F7B /* Assets.xcassets */,
 				FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */,
 				FF01DAFC1DD4177300EC8F7B /* Info.plist */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF89512C1DD7D89400675EC1 /* DetailViewController.swift in Sources */,
 				FF63C9631DD6CF2B0038AEC4 /* SatWordList.swift in Sources */,
 				FF63C9691DD6D8FE0038AEC4 /* SatWordViewController.swift in Sources */,
 				FF63C9651DD6D2200038AEC4 /* SatWordDatabase.swift in Sources */,

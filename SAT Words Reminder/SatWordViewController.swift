@@ -28,6 +28,8 @@ class SatWordViewController: UITableViewController {
         super.viewDidLoad()
 
         loadSatWords()
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,25 +62,25 @@ class SatWordViewController: UITableViewController {
     }
 
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
+
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            satWordList?.delete(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -95,14 +97,32 @@ class SatWordViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowDetail" {
+            let detailViewController = segue.destinationViewController as! DetailViewController
+            if let selectedCell = sender as? SatWordTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedCell)!
+                let selectedSatWord = satWordList?.list[indexPath.row]
+                detailViewController.satWord = selectedSatWord
+            }
+        }
+        else if segue.identifier == "AddSatWords" {
+            // Do nothing
+        }
     }
-    */
+
+    
+    @IBAction func unwindToSatWordTableView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? SearchViewController,
+            newSatWord = sourceViewController.newSatWord {
+                let newIndexPath = NSIndexPath(forRow: (satWordList?.count())!, inSection: 0)
+                satWordList?.add(newSatWord)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 
 }

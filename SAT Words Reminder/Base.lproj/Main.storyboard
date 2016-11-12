@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6m9-gl-3Ub">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zdT-gH-g3Z">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Sat Word View Controller-->
+        <!--Your SAT Words-->
         <scene sceneID="Fu4-x8-rI7">
             <objects>
                 <tableViewController id="6m9-gl-3Ub" customClass="SatWordViewController" customModule="SAT_Words_Reminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,8 +16,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SatWordTableViewCell" id="quV-e7-pGB" customClass="SatWordTableViewCell" customModule="SAT_Words_Reminder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SatWordTableViewCell" id="quV-e7-pGB" customClass="SatWordTableViewCell" customModule="SAT_Words_Reminder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="quV-e7-pGB" id="ukh-ec-OGO">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -33,6 +33,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="satWordTextLabel" destination="iBy-eM-TKy" id="Mp4-WP-S7O"/>
+                                    <segue destination="Zhv-rv-7Fn" kind="show" identifier="ShowDetail" id="49N-44-KwK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -41,12 +42,19 @@
                             <outlet property="delegate" destination="6m9-gl-3Ub" id="cry-6a-3PR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your SAT Words" id="o5t-4w-Eep">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UFs-dy-sXT">
+                            <connections>
+                                <segue destination="ICU-Wp-MM6" kind="presentation" identifier="AddSatWords" id="ucA-WF-cWE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZL-p2-boo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="304"/>
+            <point key="canvasLocation" x="575" y="298"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Add Words-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="SAT_Words_Reminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,39 +66,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Tf-sUb">
-                                <rect key="frame" x="20" y="80" width="560" height="347"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Tf-sUb">
+                                <rect key="frame" x="20" y="80" width="560" height="315"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCm-kQ-sXQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Uz-z2S">
-                                        <rect key="frame" x="0.0" y="33" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-zl-ni6">
-                                        <rect key="frame" x="0.0" y="75" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="42" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rus-ih-3KB">
-                                        <rect key="frame" x="0.0" y="117" width="48" height="30"/>
+                                        <rect key="frame" x="0.0" y="84" width="48" height="30"/>
                                         <state key="normal" title="Search"/>
                                         <connections>
                                             <action selector="performSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztO-l2-xen"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efV-fv-tIe">
-                                        <rect key="frame" x="0.0" y="159" width="209" height="21"/>
+                                        <rect key="frame" x="0.0" y="126" width="209" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="HWs-Zv-wHB">
-                                        <rect key="frame" x="0.0" y="191" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="159" width="100" height="100"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HWs-Zv-wHB" secondAttribute="height" multiplier="1:1" id="oKg-jJ-d7Q"/>
@@ -100,7 +102,7 @@
                                         </connections>
                                     </imageView>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Rx-csP" customClass="RatingControl" customModule="SAT_Words_Reminder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="303" width="240" height="44"/>
+                                        <rect key="frame" x="0.0" y="271" width="240" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -117,19 +119,81 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rxH-Tf-sUb" secondAttribute="trailing" id="itN-Jg-djt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Words" id="bRf-VP-xRH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZVs-ge-1xM">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="niT-LM-c1y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RF5-gd-LAA">
+                            <connections>
+                                <segue destination="tGm-nS-cy4" kind="unwind" unwindAction="unwindToSatWordTableView:" id="1PW-TW-XeE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="RF5-gd-LAA" id="m4z-AK-Z8g"/>
                         <outlet property="searchResultPlaceholder" destination="efV-fv-tIe" id="e4U-Em-Zwa"/>
                         <outlet property="searchTextField" destination="B5M-Uz-z2S" id="fDm-4W-enn"/>
                         <outlet property="someImageView" destination="HWs-Zv-wHB" id="f7M-r4-GU6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="tGm-nS-cy4" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="sqx-nP-IqA">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Od6-JO-WRw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="2062" y="298"/>
+        </scene>
+        <!--Word-->
+        <scene sceneID="0Qv-mY-sUx">
+            <objects>
+                <viewController id="Zhv-rv-7Fn" customClass="DetailViewController" customModule="SAT_Words_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eGt-q4-i38"/>
+                        <viewControllerLayoutGuide type="bottom" id="htV-l0-GNO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gdh-zz-19f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-kX-ZaB">
+                                <rect key="frame" x="20" y="80" width="560" height="69"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-3P-tcj">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-mS-fgw">
+                                        <rect key="frame" x="0.0" y="48" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="leading" secondItem="Gdh-zz-19f" secondAttribute="leadingMargin" id="CMq-Wy-yNo"/>
+                            <constraint firstItem="hKH-kX-ZaB" firstAttribute="top" secondItem="eGt-q4-i38" secondAttribute="bottom" constant="16" id="Wqh-bD-HPy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKH-kX-ZaB" secondAttribute="trailing" id="hRW-lu-S7s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Word" id="UIM-FV-6Zi"/>
+                    <connections>
+                        <outlet property="descriptionTextLabel" destination="Bzc-mS-fgw" id="cpv-vw-UN1"/>
+                        <outlet property="wordTextLabel" destination="H6N-3P-tcj" id="dfV-PU-qwq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fi-VZ-Inv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="1057"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nca-RO-dwn">
@@ -147,9 +211,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDZ-aC-ALa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3540" y="298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HhI-Qz-XUC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zdT-gH-g3Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ffu-kg-zHE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6m9-gl-3Ub" kind="relationship" relationship="rootViewController" id="8e3-0J-dx4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0IQ-si-fD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sdd-3f-SdY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ICU-Wp-MM6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Biv-CS-MKv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fBc-EY-5wO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0x0-0C-ATl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250" y="298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hqx-P2-Nxv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5z0-cQ-bo7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fnq-KB-CxG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zhv-rv-7Fn" kind="relationship" relationship="rootViewController" id="PKF-p2-z9q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6I-RR-4cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="1015"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="49N-44-KwK"/>
+    </inferredMetricsTieBreakers>
 </document>
