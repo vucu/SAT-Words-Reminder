@@ -14,6 +14,8 @@ class SatWordList {
     
     init() {
         self.list = [SatWord]()
+        
+        
     }
     
     // MARK: Interface
@@ -23,5 +25,15 @@ class SatWordList {
     
     func delete(position: Int) {
         self.list.removeAtIndex(position)
+    }
+    
+    func count() -> Int {
+        return self.list.count
+    }
+    
+    func display(position: Int) -> String {
+        var s: String
+        s = self.list[position].name + ":" + self.list[position].description
+        return s
     }
 }

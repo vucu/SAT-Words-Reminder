@@ -16,7 +16,7 @@ class SatWordDataBase {
     }
     
     // MARK: Interface
-    func query(q: String, count: Int) -> [SatWord]{
+    func query(q: String, count: Int=1, exclusion: [SatWord]?=nil) -> [SatWord]{
         // Note: For now, just return fake SatWord
         var fakeArray = [SatWord]();
         for i in 0..<count {
