@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */; };
-		FF01DAF31DD4177300EC8F7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DAF21DD4177300EC8F7B /* ViewController.swift */; };
+		FF01DAF31DD4177300EC8F7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DAF21DD4177300EC8F7B /* SearchViewController.swift */; };
 		FF01DAF61DD4177300EC8F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF41DD4177300EC8F7B /* Main.storyboard */; };
 		FF01DAF81DD4177300EC8F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF71DD4177300EC8F7B /* Assets.xcassets */; };
 		FF01DAFB1DD4177300EC8F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */; };
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		FF01DAED1DD4177300EC8F7B /* SAT Words Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAT Words Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF01DAF21DD4177300EC8F7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF01DAF21DD4177300EC8F7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FF01DAF51DD4177300EC8F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF01DAF71DD4177300EC8F7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF01DAFA1DD4177300EC8F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */,
-				FF01DAF21DD4177300EC8F7B /* ViewController.swift */,
+				FF01DAF21DD4177300EC8F7B /* SearchViewController.swift */,
 				FF3722C01DD58C73002AA2B0 /* RatingControl.swift */,
 				FF3722C21DD590F3002AA2B0 /* SatWord.swift */,
 				FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */,
@@ -220,7 +220,7 @@
 				FF63C9651DD6D2200038AEC4 /* SatWordDatabase.swift in Sources */,
 				FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */,
 				FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */,
-				FF01DAF31DD4177300EC8F7B /* ViewController.swift in Sources */,
+				FF01DAF31DD4177300EC8F7B /* SearchViewController.swift in Sources */,
 				FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */,
 				FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */,
 			);
