@@ -12,7 +12,7 @@ class SatWordViewController: UITableViewController {
     // MARK: Properties
     var satWordList: SatWordList?
     
-    func loadSatWords() {
+    func loadSampleSatWords() {
         // For now, create fake words
         satWordList = SatWordList()
         let fake1 = SatWord(name: "Fake 1", description: "This is a fake word")
@@ -26,10 +26,14 @@ class SatWordViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadSatWords()
         
         navigationItem.leftBarButtonItem = editButtonItem()
+        
+        if let L = loadSatWordList() {
+            satWordList = L
+        } else {
+            loadSampleSatWords()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +78,8 @@ class SatWordViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            satWordList?.delete(indexPath.row)
+            satWordList?.deleteAt(indexPath.row)
+            saveSatWordList()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -121,8 +126,21 @@ class SatWordViewController: UITableViewController {
             newSatWord = sourceViewController.newSatWord {
                 let newIndexPath = NSIndexPath(forRow: (satWordList?.count())!, inSection: 0)
                 satWordList?.add(newSatWord)
+                saveSatWordList()
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
+    }
+
+    // MARK: NSCoding
+    func saveSatWordList() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(satWordList!, toFile: SatWordList.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save satWordList...")
+        }
+    }
+    
+    func loadSatWordList() -> SatWordList? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(SatWordList.ArchiveURL.path!) as? SatWordList
     }
 
 }

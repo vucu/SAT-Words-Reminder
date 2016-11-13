@@ -8,14 +8,19 @@
 
 import Foundation
 
-class SatWordList {
+class SatWordList: NSObject, NSCoding {
     // MARK: Properties
     var list: [SatWord]
     
-    init() {
-        self.list = [SatWord]()
+    init(list: [SatWord]=[SatWord]()) {
+        self.list = list
         
-        
+        super.init()
+    }
+    
+    // MARK: Types
+    struct PropertyKey {
+        static let listKey = "list"
     }
     
     // MARK: Interface
@@ -23,7 +28,7 @@ class SatWordList {
         self.list.append(word)
     }
     
-    func delete(position: Int) {
+    func deleteAt(position: Int) {
         self.list.removeAtIndex(position)
     }
     
@@ -33,7 +38,22 @@ class SatWordList {
     
     func display(position: Int) -> String {
         var s: String
-        s = self.list[position].name + ": " + self.list[position].description
+        s = self.list[position].getName() + ": " + self.list[position].getDescription()
         return s
+    }
+    
+    // MARK: Archiving Paths
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("SatWordListInstances")
+
+    
+    // MARK: NSCoding
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(list, forKey: PropertyKey.listKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let L = aDecoder.decodeObjectForKey(PropertyKey.listKey) as! [SatWord]
+        self.init(list: L)
     }
 }

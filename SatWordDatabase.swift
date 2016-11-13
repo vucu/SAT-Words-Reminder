@@ -25,4 +25,9 @@ class SatWordDataBase {
         }
         return fakeArray
     }
+    
+    // Find the SatWord in database
+    func getSatWord(name: String, description: String="")->SatWord {
+        return SatWord(name: name, description: description)!
+    }
 }
