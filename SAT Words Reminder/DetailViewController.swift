@@ -20,8 +20,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        wordTextLabel.text = satWord?.name
-        descriptionTextLabel.text = satWord?.description
+        wordTextLabel.text = satWord?.getName()
+        descriptionTextLabel.text = satWord?.getDescription()
         navigationItem.title = satWord?.name
     }
 
