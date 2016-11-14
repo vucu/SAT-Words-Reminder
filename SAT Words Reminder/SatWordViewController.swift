@@ -11,6 +11,7 @@ import UIKit
 class SatWordViewController: UITableViewController {
     // MARK: Properties
     var satWordList: SatWordList?
+    var satWordDatabase: SatWordDataBase?
     
     func loadSampleSatWords() {
         // For now, create fake words
@@ -28,7 +29,7 @@ class SatWordViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem()
-        
+        satWordDatabase = SatWordDataBase.getDatabase()
         if let L = loadSatWordList() {
             satWordList = L
         } else {

@@ -10,12 +10,60 @@ import Foundation
 
 class SatWordDataBase {
     // MARK: Properties
+    var allSatWord: [SatWord]
 
     init() {
+        self.allSatWord = [SatWord]()
+        load()
+    }
+    
+    // MARK: Implementation
+    func fopen() -> [String] {
+        let NAME = "dictionary"
+        let EXT = "csv"
         
+        var contentString = [String]()
+        do {
+            if let path = NSBundle.mainBundle().pathForResource(NAME, ofType: EXT){
+                let data = try String(contentsOfFile:path, encoding: NSMacOSRomanStringEncoding)
+                
+                contentString = data.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            }
+        } catch let err as NSError {
+            //do sth with Error
+            print(err)
+        }
+        return contentString;
+    }
+    
+    func load() {
+        let fileContent = fopen()
+        for line in fileContent {
+            let bracket = line.rangeOfString(")")?.startIndex
+            let space = line.rangeOfString(" ")?.startIndex
+            var nameEndAt = bracket
+            if ((bracket) != nil) {
+                nameEndAt = bracket
+            }
+            else if ((space) != nil) {
+                nameEndAt = space
+            }
+            else {
+                continue
+            }
+   
+            let name = line.substringToIndex(nameEndAt!)
+            let description = line.substringFromIndex(nameEndAt!.advancedBy(1))
+            let word = SatWord(name: name, description: description)
+            allSatWord.append(word!)
+        }
     }
     
     // MARK: Interface
+    static func getDatabase() -> SatWordDataBase! {
+        return SatWordDataBase()
+    }
+    
     func query(q: String, count: Int=1, exclusion: [SatWord]?=nil) -> [SatWord]{
         // Note: For now, just return fake SatWord
         var fakeArray = [SatWord]();
