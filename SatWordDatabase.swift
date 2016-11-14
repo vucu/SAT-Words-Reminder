@@ -11,10 +11,13 @@ import Foundation
 class SatWordDataBase {
     // MARK: Properties
     var allSatWord: [SatWord]
+    static var singletonInstance: SatWordDataBase?
 
     init() {
+        print("Create database instance...")
         self.allSatWord = [SatWord]()
         load()
+        print("Done creating database instance!")
     }
     
     // MARK: Implementation
@@ -60,8 +63,12 @@ class SatWordDataBase {
     }
     
     // MARK: Interface
-    static func getDatabase() -> SatWordDataBase! {
-        return SatWordDataBase()
+    static func getInstance() -> SatWordDataBase! {
+        if (singletonInstance==nil) {
+            singletonInstance = SatWordDataBase()
+        }
+        
+        return singletonInstance
     }
     
     func query(q: String, count: Int=1, exclusion: [SatWord]?=nil) -> [SatWord]{
