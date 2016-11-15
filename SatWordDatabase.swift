@@ -126,7 +126,15 @@ class SatWordDataBase {
     }
     
     func test() {
-        
+        let r = query("apple", count:10)
+        print(r[0].getName())
+        var exclusion = [SatWord]()
+        exclusion.append(allSatWord[3])
+        exclusion.append(allSatWord[5])
+        exclusion.append(allSatWord[7])
+        exclusion.append(allSatWord[9])
+        let s = query("apple", count:10, exclusion: exclusion)
+        print(s[0].getName())
     }
     
     // MARK: Interface
@@ -141,9 +149,10 @@ class SatWordDataBase {
     func query(q: String, count: Int=1, exclusion: [SatWord]=[SatWord]()) -> [SatWord]{
         // Initialize match pool
         var matches = [Match]()
-        let exclusionCount = exclusion.count
-        for i in 0..<count+exclusionCount {
+        var i = 0
+        while (matches.count<count) {
             let word = allSatWord[i];
+            i++
             if isExcluded(word, exclusion: exclusion) {continue}
             
             let d = levenshteinDistance(q, s2: word.getName())

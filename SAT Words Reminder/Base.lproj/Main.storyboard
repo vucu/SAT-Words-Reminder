@@ -65,33 +65,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Tf-sUb">
-                                <rect key="frame" x="20" y="80" width="560" height="147"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Tf-sUb">
+                                <rect key="frame" x="20" y="124" width="560" height="453"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Uz-z2S">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtN-zl-ni6">
-                                        <rect key="frame" x="0.0" y="42" width="30" height="30"/>
-                                        <state key="normal" title="Add"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rus-ih-3KB">
-                                        <rect key="frame" x="0.0" y="84" width="48" height="30"/>
-                                        <state key="normal" title="Search"/>
-                                        <connections>
-                                            <action selector="performSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztO-l2-xen"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efV-fv-tIe">
-                                        <rect key="frame" x="0.0" y="126" width="209" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZL-jc-FqV">
+                                        <rect key="frame" x="0.0" y="42" width="560" height="411"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="MZL-jc-FqV" firstAttribute="leading" secondItem="rxH-Tf-sUb" secondAttribute="leading" id="374-jN-zpx"/>
+                                    <constraint firstAttribute="trailing" secondItem="MZL-jc-FqV" secondAttribute="trailing" id="3aM-EW-0wl"/>
                                     <constraint firstItem="B5M-Uz-z2S" firstAttribute="leading" secondItem="rxH-Tf-sUb" secondAttribute="leading" id="JA8-Dg-WCP"/>
                                     <constraint firstAttribute="trailing" secondItem="B5M-Uz-z2S" secondAttribute="trailing" id="kVC-AY-HMc"/>
                                 </constraints>
@@ -118,8 +107,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="saveButton" destination="RF5-gd-LAA" id="m4z-AK-Z8g"/>
-                        <outlet property="searchResultPlaceholder" destination="efV-fv-tIe" id="e4U-Em-Zwa"/>
                         <outlet property="searchTextField" destination="B5M-Uz-z2S" id="fDm-4W-enn"/>
+                        <outlet property="tableView" destination="MZL-jc-FqV" id="icf-y8-sr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

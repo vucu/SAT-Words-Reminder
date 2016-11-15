@@ -11,11 +11,14 @@ import Foundation
 class SatWordList: NSObject, NSCoding {
     // MARK: Properties
     var list: [SatWord]
+    static var singletonInstance: SatWordList?
     
     init(list: [SatWord]=[SatWord]()) {
+        print("Create list instance")
         self.list = list
-        
         super.init()
+        SatWordList.singletonInstance = self
+        print("Done creating list instance")
     }
     
     // MARK: Types
@@ -23,7 +26,30 @@ class SatWordList: NSObject, NSCoding {
         static let listKey = "list"
     }
     
+    // MARK: Archiving Paths
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("SatWordListInstances")
+
+    
+    // MARK: NSCoding
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(list, forKey: PropertyKey.listKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let L = aDecoder.decodeObjectForKey(PropertyKey.listKey) as! [SatWord]
+        self.init(list: L)
+    }
+    
     // MARK: Interface
+    static func getInstance() -> SatWordList! {
+        if (singletonInstance==nil) {
+            singletonInstance = SatWordList()
+        }
+        
+        return singletonInstance
+    }
+    
     func add(word: SatWord) {
         self.list.append(word)
     }
@@ -41,20 +67,5 @@ class SatWordList: NSObject, NSCoding {
         s = self.list[position].getName() + " (" + self.list[position].getType()
             + "): " + self.list[position].getDescription()
         return s
-    }
-    
-    // MARK: Archiving Paths
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("SatWordListInstances")
-
-    
-    // MARK: NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(list, forKey: PropertyKey.listKey)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        let L = aDecoder.decodeObjectForKey(PropertyKey.listKey) as! [SatWord]
-        self.init(list: L)
     }
 }

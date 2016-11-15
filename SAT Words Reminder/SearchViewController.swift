@@ -8,18 +8,26 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchResultPlaceholder: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    let cellReuseIdentifier = "cell"
     
-    var satWordList: SatWordList?
     var newSatWord: SatWord?
+    var searchResults: [SatWord]?
     
     override func viewDidLoad() {
+        searchResults = [SatWord]()
+        
         super.viewDidLoad()
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.hidden = true
         
         // Handle the text field’s user input through delegate callbacks.
         searchTextField.delegate = self;
@@ -52,7 +60,45 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidNewSatWord()
-        navigationItem.title = searchTextField.text
+        let db = SatWordDataBase.getInstance()
+        let list = SatWordList.getInstance()
+        let q = searchTextField.text!.lowercaseString
+        print(q, list.list[0].getName())
+        searchResults = db.query(q,count: 10,exclusion: list.list)
+        print(searchResults![0].getName())
+    }
+    
+    // MARK: UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults!.count;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
+        // Set text from the data model
+        let word = searchResults![indexPath.row]
+        cell.textLabel?.text = word.getName()
+        cell.textLabel?.font = searchTextField.font
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Row selected, so set textField to relevant value, hide tableView
+        // endEditing can trigger some other action according to requirements
+        let word = searchResults![indexPath.row]
+        newSatWord = word
+        searchTextField.text = word.getName()
+        navigationItem.title = word.getName()
+        searchTextField.endEditing(true)
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
     }
     
     
@@ -73,9 +119,5 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
 
     // MARK: Actions
-    @IBAction func performSearch(sender: UIButton) {
-        searchResultPlaceholder.text = "placeholder"
-    }
-    
 }
 

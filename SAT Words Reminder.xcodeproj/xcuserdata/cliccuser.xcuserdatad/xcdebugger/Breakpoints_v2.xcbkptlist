@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SAT Words Reminder/SatWordList.swift"
-            timestampString = "500772293.410437"
+            timestampString = "500880156.06286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "SatWordList"
             landmarkType = "3">
          </BreakpointContent>
