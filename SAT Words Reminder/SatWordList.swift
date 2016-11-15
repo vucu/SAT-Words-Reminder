@@ -38,7 +38,8 @@ class SatWordList: NSObject, NSCoding {
     
     func display(position: Int) -> String {
         var s: String
-        s = self.list[position].getName() + ": " + self.list[position].getDescription()
+        s = self.list[position].getName() + " (" + self.list[position].getType()
+            + "): " + self.list[position].getDescription()
         return s
     }
     

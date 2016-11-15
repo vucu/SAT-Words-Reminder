@@ -43,29 +43,48 @@ class SatWordDataBase {
     func load() {
         let fileContent = fopen()
         for line in fileContent {
-            let bracket = line.rangeOfString(")")?.startIndex
+            let bracket = line.rangeOfString("(")?.startIndex
             let space = line.rangeOfString(" ")?.startIndex
+            let bracketEnd = line.rangeOfString(")")?.startIndex
+            
             var nameEndAt = bracket
+            var typeEndAt = bracketEnd
+            var descBeginAt = bracket
             if ((bracket) != nil) {
                 nameEndAt = bracket
-                nameEndAt = nameEndAt?.advancedBy(1)
+                typeEndAt = bracketEnd
+                descBeginAt = typeEndAt?.advancedBy(1)
+                if (descBeginAt==line.endIndex) {descBeginAt=nil}
+                else {descBeginAt = descBeginAt?.advancedBy(1)}
             }
             else if ((space) != nil) {
                 nameEndAt = space
+                typeEndAt = nil
+                descBeginAt = nameEndAt?.advancedBy(1)
+                if (descBeginAt==line.endIndex) {descBeginAt=nil}
+                else {descBeginAt = descBeginAt?.advancedBy(1)}
             }
             else {
                 continue
             }
    
             let name = line.substringToIndex(nameEndAt!).lowercaseString
+            var type: String
+            if ((typeEndAt) != nil) {
+                type = line.substringWithRange(Range<String.Index>(start: nameEndAt!.advancedBy(1),
+                    end: typeEndAt!))
+            } else {
+                type = ""
+            }
             var description:String
-            if ((nameEndAt) != line.endIndex) {
-                description = line.substringFromIndex(nameEndAt!.advancedBy(1))
+            if ((descBeginAt) != nil) {
+                description = line.substringFromIndex(descBeginAt!)
             } else {
                 description = ""
             }
             
-            let word = SatWord(name: name, description: description)
+            
+            let word = SatWord(name: name, type: type, description: description)
             allSatWord.append(word!)
         }
     }
@@ -90,16 +109,7 @@ class SatWordDataBase {
     }
     
     func test() {
-        print(allSatWord[2].getName())
-        print(allSatWord[2].getDescription())
-        print(allSatWord[4].getName())
-        print(allSatWord[4].getDescription())
-        print(levenshteinDistance(allSatWord[2].getName(), s2: allSatWord[4].getName()))
         
-        var w = query("apple", count: 10)
-        for i in 0..<10 {
-            print(w[i].getName())
-        }
     }
     
     // MARK: Interface
@@ -123,7 +133,6 @@ class SatWordDataBase {
         matches.sortInPlace { (m1:Match,m2:Match) -> Bool in
             m1.distance<m2.distance
         }
-        printMatches(matches)
         
         // Update smallest distance
         for word in allSatWord {

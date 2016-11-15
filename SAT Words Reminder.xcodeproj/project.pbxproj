@@ -20,7 +20,7 @@
 		FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */; };
 		FF63C9691DD6D8FE0038AEC4 /* SatWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */; };
 		FF6B22181DD95AA400A5E566 /* dictionary.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF6B22171DD95AA400A5E566 /* dictionary.csv */; };
-		FF6B221A1DD972CB00A5E566 /* LevenshteinExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B22191DD972CB00A5E566 /* LevenshteinExtensions.swift */; };
+		FF70EB071DDABACA007563AB /* LevenshteinExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70EB061DDABACA007563AB /* LevenshteinExtensions.swift */; };
 		FF89512C1DD7D89400675EC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF89512B1DD7D89400675EC1 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordTableViewCell.swift; sourceTree = "<group>"; };
 		FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordViewController.swift; sourceTree = "<group>"; };
 		FF6B22171DD95AA400A5E566 /* dictionary.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary.csv; sourceTree = "<group>"; };
-		FF6B22191DD972CB00A5E566 /* LevenshteinExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevenshteinExtensions.swift; path = ../../../../Volumes/SAVE2HERE/LevenshteinExtensions.swift; sourceTree = "<group>"; };
+		FF70EB061DDABACA007563AB /* LevenshteinExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevenshteinExtensions.swift; path = ../LevenshteinExtensions.swift; sourceTree = "<group>"; };
 		FF89512B1DD7D89400675EC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,14 +95,11 @@
 		FF01DAEF1DD4177300EC8F7B /* SAT Words Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				FF6B22171DD95AA400A5E566 /* dictionary.csv */,
+				FF70EB091DDABB16007563AB /* Model */,
+				FF70EB081DDABAF5007563AB /* Extensions */,
 				FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */,
 				FF01DAF21DD4177300EC8F7B /* SearchViewController.swift */,
 				FF3722C01DD58C73002AA2B0 /* RatingControl.swift */,
-				FF3722C21DD590F3002AA2B0 /* SatWord.swift */,
-				FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */,
-				FF6B22191DD972CB00A5E566 /* LevenshteinExtensions.swift */,
-				FF63C9621DD6CF2B0038AEC4 /* SatWordList.swift */,
 				FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */,
 				FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */,
 				FF01DAF41DD4177300EC8F7B /* Main.storyboard */,
@@ -121,6 +118,25 @@
 				FF01DB071DD4177300EC8F7B /* Info.plist */,
 			);
 			path = "SAT Words ReminderTests";
+			sourceTree = "<group>";
+		};
+		FF70EB081DDABAF5007563AB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF70EB061DDABACA007563AB /* LevenshteinExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		FF70EB091DDABB16007563AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */,
+				FF63C9621DD6CF2B0038AEC4 /* SatWordList.swift */,
+				FF3722C21DD590F3002AA2B0 /* SatWord.swift */,
+				FF6B22171DD95AA400A5E566 /* dictionary.csv */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +248,7 @@
 				FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */,
 				FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */,
 				FF01DAF31DD4177300EC8F7B /* SearchViewController.swift in Sources */,
-				FF6B221A1DD972CB00A5E566 /* LevenshteinExtensions.swift in Sources */,
+				FF70EB071DDABACA007563AB /* LevenshteinExtensions.swift in Sources */,
 				FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */,
 				FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */,
 			);
