@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SearchResultTableViewController: UITableViewController {
+class SearchResultTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Properties
-    var searchResults: [SatWord]?
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    var searchResults: [SatWord]?
     
     func loadSampleResults() {
         searchResults = [SatWord]()
@@ -32,11 +33,24 @@ class SearchResultTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loadSampleResults()
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: UISearchBarDelegate
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.becomeFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        print("Event!!!")
+        let text = searchBar.text
+        let word = SatWord(name: text!)
+        searchResults![2] = word!
     }
 
     // MARK: - Table view data source

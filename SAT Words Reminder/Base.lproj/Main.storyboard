@@ -220,6 +220,9 @@
                             <outlet property="delegate" destination="zgO-jd-k4t" id="1Bx-nn-lcL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="oFK-Lb-7ay" id="a3R-oU-wNu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jve-GP-v2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
