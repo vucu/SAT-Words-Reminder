@@ -17,11 +17,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     let cellReuseIdentifier = "cell"
     
     var newSatWord: SatWord?
-    var searchResults: [SatWord]?
+    var searchResults: [SatWord]? = SatWordList.getEmptySatWords()
     
     override func viewDidLoad() {
-        searchResults = [SatWord]()
-        
         super.viewDidLoad()
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -64,7 +62,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let list = SatWordList.getInstance()
         let q = searchTextField.text!.lowercaseString
         print(q, list.list[0].getName())
-        searchResults = db.query(q,count: 10,exclusion: list.list)
+        // searchResults = db.query(q,count: 10,exclusion: list.list)
+        
+        searchResults?.append(db.allSatWord[4])
+        
         print(searchResults![0].getName())
     }
     
@@ -74,7 +75,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults!.count;
+        return (searchResults?.count)!;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -94,7 +95,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         newSatWord = word
         searchTextField.text = word.getName()
         navigationItem.title = word.getName()
-        searchTextField.endEditing(true)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -126,15 +126,6 @@ class SatWordDataBase {
     }
     
     func test() {
-        let r = query("apple", count:10)
-        print(r[0].getName())
-        var exclusion = [SatWord]()
-        exclusion.append(allSatWord[3])
-        exclusion.append(allSatWord[5])
-        exclusion.append(allSatWord[7])
-        exclusion.append(allSatWord[9])
-        let s = query("apple", count:10, exclusion: exclusion)
-        print(s[0].getName())
     }
     
     // MARK: Interface
@@ -148,6 +139,7 @@ class SatWordDataBase {
     
     func query(q: String, count: Int=1, exclusion: [SatWord]=[SatWord]()) -> [SatWord]{
         // Initialize match pool
+        print("Start query, ", q, ", ", String(count),", ", String(exclusion.count))
         var matches = [Match]()
         var i = 0
         while (matches.count<count) {
@@ -162,6 +154,7 @@ class SatWordDataBase {
         matches.sortInPlace { (m1:Match,m2:Match) -> Bool in
             m1.distance<m2.distance
         }
+        print("End loop 1")
         
         // Update smallest distance
         for word in allSatWord {
@@ -178,12 +171,14 @@ class SatWordDataBase {
                 }
             }
         }
+        print("End loop 2")
         
         //
         var resultArray = [SatWord]();
         for match in matches {
             resultArray.append(match.word)
         }
+        print("End loop 3")
         return resultArray
     }
     

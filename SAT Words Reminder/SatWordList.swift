@@ -50,6 +50,22 @@ class SatWordList: NSObject, NSCoding {
         return singletonInstance
     }
     
+    static func getEmptySatWords() -> [SatWord] {
+        var e = [SatWord]()
+        let emptySatWord = SatWord(name: "empty")
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        e.append(emptySatWord!)
+        return e
+    }
+    
     func add(word: SatWord) {
         self.list.append(word)
     }
