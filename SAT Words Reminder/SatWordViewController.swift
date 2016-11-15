@@ -13,13 +13,12 @@ class SatWordViewController: UITableViewController {
     var satWordList: SatWordList?
     
     func loadSampleSatWords() {
-        // For now, create fake words
         satWordList = SatWordList()
-        let fake1 = SatWord(name: "Fake 1", description: "This is a fake word")
+        let fake1 = SatWord(name: "acumen", type: "n", description: "shrewdness shown by keen insight")
         satWordList!.add(fake1!)
-        let fake2 = SatWord(name: "Fake 2", description: "This is a fake word")
+        let fake2 = SatWord(name: "impute", type: "v", description: "attribute or credit to")
         satWordList!.add(fake2!)
-        let fake3 = SatWord(name: "Fake 3", description: "This is a fake word")
+        let fake3 = SatWord(name: "rescind", type: "v", description: "cancel officially")
         satWordList!.add(fake3!)
     }
     

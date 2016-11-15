@@ -69,28 +69,45 @@ class SatWordDataBase {
             }
    
             let name = line.substringToIndex(nameEndAt!).lowercaseString
-            var type: String
-            if ((typeEndAt) != nil) {
-                type = line.substringWithRange(Range<String.Index>(start: nameEndAt!.advancedBy(1),
-                    end: typeEndAt!))
-            } else {
-                type = ""
+            // Note: Since this is SAT Word dictionary, only add words with length long enough
+            if (name.characters.count>2) {
+                var type: String
+                if ((typeEndAt) != nil) {
+                    type = line.substringWithRange(Range<String.Index>(start: nameEndAt!.advancedBy(1),
+                        end: typeEndAt!))
+                } else {
+                    type = ""
+                }
+                var description:String
+                if ((descBeginAt) != nil) {
+                    description = line.substringFromIndex(descBeginAt!)
+                } else {
+                    description = ""
+                }
+                
+                
+                let word = SatWord(name: name, type: type, description: description)
+                allSatWord.append(word!)
             }
-            var description:String
-            if ((descBeginAt) != nil) {
-                description = line.substringFromIndex(descBeginAt!)
-            } else {
-                description = ""
-            }
-            
-            
-            let word = SatWord(name: name, type: type, description: description)
-            allSatWord.append(word!)
         }
     }
     
     func levenshteinDistance(s1: String, s2:String)->Int {
         return s1.getLevenshtein(s2)
+    }
+    
+    func isExcluded(word: SatWord, exclusion: [SatWord]?=nil)->Bool {
+        if (exclusion==nil) {
+            return false
+        }
+        
+        for excludedWord in exclusion! {
+            if (word.getName()==excludedWord.getName()) {
+                return true
+            }
+        }
+        
+        return false
     }
     
     struct Match {
@@ -121,11 +138,14 @@ class SatWordDataBase {
         return singletonInstance
     }
     
-    func query(q: String, count: Int=1, exclusion: [SatWord]?=nil) -> [SatWord]{
+    func query(q: String, count: Int=1, exclusion: [SatWord]=[SatWord]()) -> [SatWord]{
         // Initialize match pool
         var matches = [Match]()
-        for i in 0..<count {
+        let exclusionCount = exclusion.count
+        for i in 0..<count+exclusionCount {
             let word = allSatWord[i];
+            if isExcluded(word, exclusion: exclusion) {continue}
+            
             let d = levenshteinDistance(q, s2: word.getName())
             let m = Match(distance: d, word: word)
             matches.append(m)
@@ -136,6 +156,8 @@ class SatWordDataBase {
         
         // Update smallest distance
         for word in allSatWord {
+            if isExcluded(word, exclusion: exclusion) {continue}
+            
             let d = levenshteinDistance(q, s2: word.getName())
             let m = Match(distance: d, word: word)
             let largestDistance = matches[count-1].distance

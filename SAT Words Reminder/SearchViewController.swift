@@ -13,7 +13,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     // MARK: Properties
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchResultPlaceholder: UILabel!
-    @IBOutlet weak var someImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var satWordList: SatWordList?
@@ -56,22 +55,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         navigationItem.title = searchTextField.text
     }
     
-    // MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        // Dismiss the picker if the user canceled.
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        // The info dictionary contains multiple representations of the image, and this uses the original.
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        // Set someImageView to display the selected image.
-        someImageView.image = selectedImage
-        
-        // Dismiss the picker.
-        dismissViewControllerAnimated(true, completion: nil)
-    }
     
     // MARK: Navigation
     @IBAction func cancel(sender: AnyObject) {
@@ -89,25 +72,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
     }
 
-    
     // MARK: Actions
-    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-        searchTextField.resignFirstResponder()
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        
-        presentViewController(imagePickerController, animated: true, completion: nil)
-
-    }
-    
-    
     @IBAction func performSearch(sender: UIButton) {
         searchResultPlaceholder.text = "placeholder"
     }

@@ -13,7 +13,6 @@
 		FF01DAF81DD4177300EC8F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF71DD4177300EC8F7B /* Assets.xcassets */; };
 		FF01DAFB1DD4177300EC8F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */; };
 		FF01DB061DD4177300EC8F7B /* SAT_Words_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */; };
-		FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3722C01DD58C73002AA2B0 /* RatingControl.swift */; };
 		FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3722C21DD590F3002AA2B0 /* SatWord.swift */; };
 		FF63C9631DD6CF2B0038AEC4 /* SatWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9621DD6CF2B0038AEC4 /* SatWordList.swift */; };
 		FF63C9651DD6D2200038AEC4 /* SatWordDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */; };
@@ -45,7 +44,6 @@
 		FF01DB011DD4177300EC8F7B /* SAT Words ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAT Words ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF01DB051DD4177300EC8F7B /* SAT_Words_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAT_Words_ReminderTests.swift; sourceTree = "<group>"; };
 		FF01DB071DD4177300EC8F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF3722C01DD58C73002AA2B0 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		FF3722C21DD590F3002AA2B0 /* SatWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWord.swift; sourceTree = "<group>"; };
 		FF63C9621DD6CF2B0038AEC4 /* SatWordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordList.swift; sourceTree = "<group>"; };
 		FF63C9641DD6D2200038AEC4 /* SatWordDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SatWordDatabase.swift; path = ../SatWordDatabase.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				FF70EB081DDABAF5007563AB /* Extensions */,
 				FF01DAF01DD4177300EC8F7B /* AppDelegate.swift */,
 				FF01DAF21DD4177300EC8F7B /* SearchViewController.swift */,
-				FF3722C01DD58C73002AA2B0 /* RatingControl.swift */,
 				FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */,
 				FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */,
 				FF01DAF41DD4177300EC8F7B /* Main.storyboard */,
@@ -249,7 +246,6 @@
 				FF3722C31DD590F3002AA2B0 /* SatWord.swift in Sources */,
 				FF01DAF31DD4177300EC8F7B /* SearchViewController.swift in Sources */,
 				FF70EB071DDABACA007563AB /* LevenshteinExtensions.swift in Sources */,
-				FF3722C11DD58C73002AA2B0 /* RatingControl.swift in Sources */,
 				FF01DAF11DD4177300EC8F7B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
