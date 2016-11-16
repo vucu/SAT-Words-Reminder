@@ -14,18 +14,34 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    let cellReuseIdentifier = "cell"
+    let cellReuseIdentifier = "SearchResultExtTableViewCell"
     
     var newSatWord: SatWord?
-    var searchResults: [SatWord]? = SatWordList.getEmptySatWords()
+    var searchResults: [SatWord]?
+    
+    func loadSampleResults() {
+        searchResults = [SatWord]()
+        let emptySatWord = SatWord(name: "empty")
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+        searchResults?.append(emptySatWord!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadSampleResults()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.hidden = true
+        tableView.hidden = false
         
         // Handle the text field’s user input through delegate callbacks.
         searchTextField.delegate = self;
@@ -79,11 +95,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        
         // Set text from the data model
         let word = searchResults![indexPath.row]
-        cell.textLabel?.text = word.getName()
-        cell.textLabel?.font = searchTextField.font
+        
+        
         return cell
     }
     
