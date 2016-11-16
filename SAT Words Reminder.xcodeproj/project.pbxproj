@@ -19,6 +19,7 @@
 		FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */; };
 		FF63C9691DD6D8FE0038AEC4 /* SatWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */; };
 		FF6B22181DD95AA400A5E566 /* dictionary.csv in Resources */ = {isa = PBXBuildFile; fileRef = FF6B22171DD95AA400A5E566 /* dictionary.csv */; };
+		FF6D2B161DDBF0DD00FD4083 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF6D2B141DDBF0DD00FD4083 /* CoreDataModel.xcdatamodeld */; };
 		FF70EB071DDABACA007563AB /* LevenshteinExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70EB061DDABACA007563AB /* LevenshteinExtensions.swift */; };
 		FF89512C1DD7D89400675EC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF89512B1DD7D89400675EC1 /* DetailViewController.swift */; };
 		FFF367BE1DDBCD62003E417C /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF367BD1DDBCD62003E417C /* SearchResultTableViewCell.swift */; };
@@ -52,6 +53,7 @@
 		FF63C9661DD6D5CC0038AEC4 /* SatWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordTableViewCell.swift; sourceTree = "<group>"; };
 		FF63C9681DD6D8FE0038AEC4 /* SatWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatWordViewController.swift; sourceTree = "<group>"; };
 		FF6B22171DD95AA400A5E566 /* dictionary.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary.csv; sourceTree = "<group>"; };
+		FF6D2B151DDBF0DD00FD4083 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FF70EB061DDABACA007563AB /* LevenshteinExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevenshteinExtensions.swift; path = ../LevenshteinExtensions.swift; sourceTree = "<group>"; };
 		FF89512B1DD7D89400675EC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FFF367BD1DDBCD62003E417C /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				FF01DAF71DD4177300EC8F7B /* Assets.xcassets */,
 				FF01DAF91DD4177300EC8F7B /* LaunchScreen.storyboard */,
 				FF01DAFC1DD4177300EC8F7B /* Info.plist */,
+				FF6D2B141DDBF0DD00FD4083 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = "SAT Words Reminder";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				FF89512C1DD7D89400675EC1 /* DetailViewController.swift in Sources */,
 				FF63C9631DD6CF2B0038AEC4 /* SatWordList.swift in Sources */,
+				FF6D2B161DDBF0DD00FD4083 /* CoreDataModel.xcdatamodeld in Sources */,
 				FF63C9691DD6D8FE0038AEC4 /* SatWordViewController.swift in Sources */,
 				FF63C9651DD6D2200038AEC4 /* SatWordDatabase.swift in Sources */,
 				FF63C9671DD6D5CC0038AEC4 /* SatWordTableViewCell.swift in Sources */,
@@ -488,6 +492,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF6D2B141DDBF0DD00FD4083 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF6D2B151DDBF0DD00FD4083 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = FF6D2B151DDBF0DD00FD4083 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF01DAE51DD4177300EC8F7B /* Project object */;
 }
