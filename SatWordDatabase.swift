@@ -51,7 +51,7 @@ class SatWordDataBase {
             var typeEndAt = bracketEnd
             var descBeginAt = bracket
             if ((bracket) != nil) {
-                nameEndAt = bracket
+                nameEndAt = bracket?.advancedBy(-1)
                 typeEndAt = bracketEnd
                 descBeginAt = typeEndAt?.advancedBy(1)
                 if (descBeginAt==line.endIndex) {descBeginAt=nil}
@@ -73,7 +73,7 @@ class SatWordDataBase {
             if (name.characters.count>2) {
                 var type: String
                 if ((typeEndAt) != nil) {
-                    type = line.substringWithRange(Range<String.Index>(start: nameEndAt!.advancedBy(1),
+                    type = line.substringWithRange(Range<String.Index>(start: nameEndAt!.advancedBy(2),
                         end: typeEndAt!))
                 } else {
                     type = ""
@@ -154,7 +154,6 @@ class SatWordDataBase {
         matches.sortInPlace { (m1:Match,m2:Match) -> Bool in
             m1.distance<m2.distance
         }
-        print("End loop 1")
         
         // Update smallest distance
         for word in allSatWord {
@@ -171,19 +170,13 @@ class SatWordDataBase {
                 }
             }
         }
-        print("End loop 2")
         
         //
         var resultArray = [SatWord]();
         for match in matches {
             resultArray.append(match.word)
         }
-        print("End loop 3")
         return resultArray
     }
     
-    // Find the SatWord in database
-    func getSatWord(name: String, description: String="")->SatWord {
-        return SatWord(name: name, description: description)!
-    }
 }

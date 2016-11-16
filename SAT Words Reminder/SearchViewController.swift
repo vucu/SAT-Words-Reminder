@@ -17,27 +17,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     let cellReuseIdentifier = "SearchResultExtTableViewCell"
     
     var newSatWord: SatWord?
-    var searchResults: [SatWord]?
-    
-    func loadSampleResults() {
-        searchResults = [SatWord]()
-        let emptySatWord = SatWord(name: "empty")
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-        searchResults?.append(emptySatWord!)
-    }
+    var searchResults: [SatWord] = [SatWord]()
+    var canSearch: Bool = true
+    var canSelect: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadSampleResults()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -74,14 +60,25 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidNewSatWord()
-        let db = SatWordDataBase.getInstance()
-        let list = SatWordList.getInstance()
-        let q = searchTextField.text!.lowercaseString
-        print(q, list.list[0].getName())
-        // searchResults = db.query(q,count: 10,exclusion: list.list)
         
-        searchResults![4] = db.allSatWord[4]
-        self.tableView.reloadData()
+        if (self.canSearch) {
+            let q = searchTextField.text!.lowercaseString
+            
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                self.canSearch = false
+                self.canSelect = false
+                self.performSearch(q)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                    self.canSearch = true
+                    self.canSelect = true
+                }
+            }
+            
+            let placeholder = SatWord(name: "loading............")
+            searchResults = Array(arrayLiteral: placeholder!)
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -90,15 +87,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (searchResults?.count)!;
+        return (searchResults.count);
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) 
 
         // Set text from the data model
-        let word = searchResults![indexPath.row]
-        cell.textLabel?.text = word.getName()
+        let word = searchResults[indexPath.row]
+        cell.textLabel?.text = word.getName()+" ("+word.getType()+"): "+word.getDescription()
         
         return cell
     }
@@ -107,7 +104,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // Row selected, so set textField to relevant value, hide tableView
         // endEditing can trigger some other action according to requirements
-        let word = searchResults![indexPath.row]
+        let word = searchResults[indexPath.row]
         newSatWord = word
         searchTextField.text = word.getName()
         navigationItem.title = word.getName()
@@ -135,5 +132,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     // MARK: Actions
+    func performSearch(q: String) {
+        let db = SatWordDataBase.getInstance()
+        let list = SatWordList.getInstance()
+        searchResults = db.query(q,count: 10,exclusion: list.list)
+    }
 }
 
