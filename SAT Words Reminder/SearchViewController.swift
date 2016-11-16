@@ -8,19 +8,26 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchResultPlaceholder: UILabel!
-    @IBOutlet weak var someImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    let cellReuseIdentifier = "SearchResultExtTableViewCell"
     
-    var satWordList: SatWordList?
     var newSatWord: SatWord?
+    var searchResults: [SatWord] = [SatWord]()
+    var canSearch: Bool = true
+    var canSelect: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.hidden = false
         
         // Handle the text field’s user input through delegate callbacks.
         searchTextField.delegate = self;
@@ -36,13 +43,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     // MARK: UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
         // Disable the Save button while editing.
-        saveButton.enabled = false
+        newSatWord = nil
+        checkValidNewSatWord()
     }
     
     func checkValidNewSatWord() {
-        // Disable the Save button if the text field is empty.
-        let text = searchTextField.text ?? ""
-        saveButton.enabled = !text.isEmpty
+        if (newSatWord==nil) {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -53,25 +63,61 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkValidNewSatWord()
-        navigationItem.title = searchTextField.text
+        
+        if (self.canSearch) {
+            let q = searchTextField.text!.lowercaseString
+            
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                self.canSearch = false
+                self.canSelect = false
+                self.performSearch(q)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                    self.searchTextField.text = ""
+                    self.canSearch = true
+                    self.canSelect = true
+                }
+            }
+            
+            let placeholder = SatWord(name: "loading............")
+            searchResults = Array(arrayLiteral: placeholder!)
+            self.tableView.reloadData()
+        }
     }
     
-    // MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        // Dismiss the picker if the user canceled.
-        dismissViewControllerAnimated(true, completion: nil)
+    // MARK: UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        // The info dictionary contains multiple representations of the image, and this uses the original.
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        // Set someImageView to display the selected image.
-        someImageView.image = selectedImage
-        
-        // Dismiss the picker.
-        dismissViewControllerAnimated(true, completion: nil)
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (searchResults.count);
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) 
+
+        // Set text from the data model
+        let word = searchResults[indexPath.row]
+        cell.textLabel?.text = word.getName()+" ("+word.getType()+"): "+word.getDescription()
+        
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (self.canSelect) {
+            let word = searchResults[indexPath.row]
+            newSatWord = word
+            navigationItem.title = word.getName()
+            checkValidNewSatWord()
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
     
     // MARK: Navigation
     @IBAction func cancel(sender: AnyObject) {
@@ -81,36 +127,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (sender === saveButton) {
-            let name = "word"
-            let description = "description"
-            newSatWord = SatWord(name: name, description: description)
-            
-            
         }
     }
 
-    
     // MARK: Actions
-    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-        searchTextField.resignFirstResponder()
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .PhotoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        
-        presentViewController(imagePickerController, animated: true, completion: nil)
-
+    func performSearch(q: String) {
+        let db = SatWordDataBase.getInstance()
+        let list = SatWordList.getInstance()
+        searchResults = db.query(q,count: 10,exclusion: list.list)
     }
-    
-    
-    @IBAction func performSearch(sender: UIButton) {
-        searchResultPlaceholder.text = "placeholder"
-    }
-    
 }
 
