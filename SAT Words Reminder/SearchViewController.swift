@@ -43,13 +43,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
         // Disable the Save button while editing.
-        saveButton.enabled = false
+        newSatWord = nil
+        checkValidNewSatWord()
     }
     
     func checkValidNewSatWord() {
-        // Disable the Save button if the text field is empty.
-        let text = searchTextField.text ?? ""
-        saveButton.enabled = !text.isEmpty
+        if (newSatWord==nil) {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -70,6 +73,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 self.performSearch(q)
                 dispatch_async(dispatch_get_main_queue()) {
                     self.tableView.reloadData()
+                    self.searchTextField.text = ""
                     self.canSearch = true
                     self.canSelect = true
                 }
@@ -102,12 +106,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Row selected, so set textField to relevant value, hide tableView
-        // endEditing can trigger some other action according to requirements
-        let word = searchResults[indexPath.row]
-        newSatWord = word
-        searchTextField.text = word.getName()
-        navigationItem.title = word.getName()
+        if (self.canSelect) {
+            let word = searchResults[indexPath.row]
+            newSatWord = word
+            navigationItem.title = word.getName()
+            checkValidNewSatWord()
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -123,11 +127,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (sender === saveButton) {
-            let name = "word"
-            let description = "description"
-            newSatWord = SatWord(name: name, description: description)
-            
-            
         }
     }
 
