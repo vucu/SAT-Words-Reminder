@@ -80,9 +80,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         print(q, list.list[0].getName())
         // searchResults = db.query(q,count: 10,exclusion: list.list)
         
-        searchResults?.append(db.allSatWord[4])
-        
-        print(searchResults![0].getName())
+        searchResults![4] = db.allSatWord[4]
+        self.tableView.reloadData()
     }
     
     // MARK: UITableViewDataSource
@@ -95,9 +94,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        print(cell.debugDescription)
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) 
+
         // Set text from the data model
         let word = searchResults![indexPath.row]
         cell.textLabel?.text = word.getName()
