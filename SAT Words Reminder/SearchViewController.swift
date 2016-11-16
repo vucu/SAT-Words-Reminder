@@ -96,10 +96,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        print(cell.debugDescription)
         
         // Set text from the data model
         let word = searchResults![indexPath.row]
-        
+        cell.textLabel?.text = word.getName()
         
         return cell
     }
